@@ -81,7 +81,9 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Transactional
     @Override
     public ApplicationDto updateApplication(Long applicationId, ApplicationDto applicationUpdate) {
+
         Application applicationUpdateEntity = modelMapper.map(applicationUpdate, Application.class);
+
         if (applicationId == null || applicationUpdate == null) {
             throw new RuntimeException("Application Id and/or Application cannot be null");
         }
